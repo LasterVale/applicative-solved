@@ -6,9 +6,11 @@ import { data } from "../data/data";
 
 export function findPlanetNameByMoon(data, moonName) {
   // Your code goes here...
+  const planet = data.planets.find(obj => {
+    return obj.moons && obj.moons.includes(moonName);
+  });
+  return planet ? planet.name : undefined;
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-8"

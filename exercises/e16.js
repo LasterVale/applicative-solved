@@ -4,14 +4,18 @@
  * In order to do this it is ok to use any type of FOR loops.
  * REQUIREMENT: A find function should
  * * Take an array of things
- * * Return a the first thing where the applied callback is truthey
+ * * Return the first thing where the applied callback is truthy
  * The function MUST NOT use the find() method.
  */
 
 
 export function find(array, callback) {
   // Your code goes here...
-  
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i], i, array)) {
+      return array[i];
+    }
+  }
 }
 
 
