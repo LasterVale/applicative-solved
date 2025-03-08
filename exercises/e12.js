@@ -6,10 +6,12 @@ import { data } from "../data/data";
 
 export function allPlanetsMoonsCount(data) {
   // Your code goes here...
-  return Object.values(data).reduce((sum, arr) => {
-    return sum + arr.reduce((count, obj) => {
-      return count + (Array.isArray(obj.moons) ? obj.moons.length : 0);
-    }, 0);
+  return data.planets.reduce((acc, planet) => { 
+    if (planet.moons !== undefined) {
+      return acc + planet.moons.length;
+    } else {
+      return acc;
+    }    
   }, 0);
 }
 

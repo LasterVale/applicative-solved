@@ -6,10 +6,22 @@ import { data } from "../data/data";
 
 export function findPlanetNameByMoon(data, moonName) {
   // Your code goes here...
-  const planet = data.planets.find(obj => {
-    return obj.moons && obj.moons.includes(moonName);
-  });
-  return planet ? planet.name : undefined;
+  return data.planets.reduce((acc, planet) => {
+    if (planet.hasOwnProperty('moons') && planet.moons.includes(moonName)) {
+      return acc + planet.name;
+    } else {
+      return acc;
+    }
+  }, "");
+
+
+
+
+
+
+
+
+
 }
 
 // === TEST YOURSELF ===
